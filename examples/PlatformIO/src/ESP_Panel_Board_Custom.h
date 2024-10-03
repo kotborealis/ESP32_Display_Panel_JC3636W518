@@ -9,7 +9,7 @@
 // *INDENT-OFF*
 
 /* Set to 1 if using a custom board */
-#define ESP_PANEL_USE_CUSTOM_BOARD       (0)         // 0/1
+#define ESP_PANEL_USE_CUSTOM_BOARD       (1)         // 0/1
 
 #if ESP_PANEL_USE_CUSTOM_BOARD
 
@@ -17,7 +17,7 @@
 //////////////////////////// Please update the following macros to configure the LCD panel /////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /* Set to 1 when using an LCD panel */
-#define ESP_PANEL_USE_LCD           (0)     // 0/1
+#define ESP_PANEL_USE_LCD           (1)     // 0/1
 
 #if ESP_PANEL_USE_LCD
 /**
@@ -30,11 +30,11 @@
  *      - SPD2010
  *      - ST7262, ST7701, ST7789, ST7796, ST77916, ST77922
  */
-#define ESP_PANEL_LCD_NAME          ILI9341
+#define ESP_PANEL_LCD_NAME          ST77916
 
 /* LCD resolution in pixels */
-#define ESP_PANEL_LCD_WIDTH         (320)
-#define ESP_PANEL_LCD_HEIGHT        (240)
+#define ESP_PANEL_LCD_WIDTH         (360)
+#define ESP_PANEL_LCD_HEIGHT        (360)
 
 /* LCD Bus Settings */
 /**
@@ -52,7 +52,7 @@
  *      - ESP_PANEL_BUS_TYPE_I80 (not ready)
  *      - ESP_PANEL_BUS_TYPE_RGB (only supported for ESP32-S3)
  */
-#define ESP_PANEL_LCD_BUS_TYPE      (ESP_PANEL_BUS_TYPE_SPI)
+#define ESP_PANEL_LCD_BUS_TYPE      (ESP_PANEL_BUS_TYPE_QSPI)
 /**
  * LCD Bus Parameters.
  *
@@ -80,13 +80,13 @@
 #elif ESP_PANEL_LCD_BUS_TYPE == ESP_PANEL_BUS_TYPE_QSPI
 
     #define ESP_PANEL_LCD_BUS_HOST_ID           (1)     // Typically set to 1
-    #define ESP_PANEL_LCD_SPI_IO_CS             (5)
+    #define ESP_PANEL_LCD_SPI_IO_CS             (10)
 #if !ESP_PANEL_LCD_BUS_SKIP_INIT_HOST
     #define ESP_PANEL_LCD_SPI_IO_SCK            (9)
-    #define ESP_PANEL_LCD_SPI_IO_DATA0          (10)
-    #define ESP_PANEL_LCD_SPI_IO_DATA1          (11)
-    #define ESP_PANEL_LCD_SPI_IO_DATA2          (12)
-    #define ESP_PANEL_LCD_SPI_IO_DATA3          (13)
+    #define ESP_PANEL_LCD_SPI_IO_DATA0          (11)
+    #define ESP_PANEL_LCD_SPI_IO_DATA1          (12)
+    #define ESP_PANEL_LCD_SPI_IO_DATA2          (13)
+    #define ESP_PANEL_LCD_SPI_IO_DATA3          (14)
 #endif
     #define ESP_PANEL_LCD_SPI_MODE              (0)     // 0/1/2/3, typically set to 0
     #define ESP_PANEL_LCD_SPI_CLK_HZ            (40 * 1000 * 1000)
@@ -207,7 +207,7 @@
 
 /* LCD Other Settings */
 /* Reset pin */
-#define ESP_PANEL_LCD_IO_RST          (-1)      // IO num of RESET pin, set to -1 if not use
+#define ESP_PANEL_LCD_IO_RST          (47)      // IO num of RESET pin, set to -1 if not use
 #define ESP_PANEL_LCD_RST_LEVEL       (0)       // Active level. 0: low level, 1: high level
 
 #endif /* ESP_PANEL_USE_LCD */
@@ -300,10 +300,10 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////// Please update the following macros to configure the backlight ////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-#define ESP_PANEL_USE_BACKLIGHT         (0)         // 0/1
+#define ESP_PANEL_USE_BACKLIGHT         (1)         // 0/1
 #if ESP_PANEL_USE_BACKLIGHT
 /* Backlight pin */
-#define ESP_PANEL_BACKLIGHT_IO          (45)        // IO num of backlight pin
+#define ESP_PANEL_BACKLIGHT_IO          (15)        // IO num of backlight pin
 #define ESP_PANEL_BACKLIGHT_ON_LEVEL    (1)         // 0: low level, 1: high level
 
 /* Set to 1 if you want to turn off the backlight after initializing the panel; otherwise, set it to turn on */
@@ -317,7 +317,7 @@
 ///////////////////////////// Please update the following macros to configure the IO expander //////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /* Set to 0 if not using IO Expander */
-#define ESP_PANEL_USE_EXPANDER          (0)         // 0/1
+#define ESP_PANEL_USE_EXPANDER          (1)         // 0/1
 #if ESP_PANEL_USE_EXPANDER
 /**
  * IO expander name. Choose one of the following:
@@ -344,8 +344,8 @@
                                                         // Typically set to 400K
     #define ESP_PANEL_EXPANDER_I2C_SCL_PULLUP   (1)     // 0/1
     #define ESP_PANEL_EXPANDER_I2C_SDA_PULLUP   (1)     // 0/1
-    #define ESP_PANEL_EXPANDER_I2C_IO_SCL       (18)
-    #define ESP_PANEL_EXPANDER_I2C_IO_SDA       (8)
+    #define ESP_PANEL_EXPANDER_I2C_IO_SCL       (8)
+    #define ESP_PANEL_EXPANDER_I2C_IO_SDA       (7)
 #endif
 #endif /* ESP_PANEL_USE_EXPANDER */
 
