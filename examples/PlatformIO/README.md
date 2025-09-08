@@ -4,6 +4,8 @@ The example is used to guide how to use this library in PlatformIO. It also demo
 
 It is by default suitable for **ESP32-S3-LCD-EV-Board** and **ESP32-S3-LCD-EV-Board-2** boards. Users should modify the [boards/ESP-LCD.json](boards/ESP-LCD.json) file as needed.
 
+An additional `src/app.cpp` sketch demonstrates a simple Flappy Bird style game using LVGL to showcase touch input and object animation.
+
 ## How to Use
 
 Follow the steps below to configure:
