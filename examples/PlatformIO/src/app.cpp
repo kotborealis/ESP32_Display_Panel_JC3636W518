@@ -130,6 +130,7 @@ void setup()
     lv_label_set_text(score_label, "Score: 0");
     lv_obj_align(score_label, LV_ALIGN_TOP_MID, 0, 5);
 
+    lv_obj_add_flag(lv_scr_act(), LV_OBJ_FLAG_CLICKABLE);
     lv_obj_add_event_cb(lv_scr_act(), flap_cb, LV_EVENT_CLICKED, NULL);
 
     reset_game();
